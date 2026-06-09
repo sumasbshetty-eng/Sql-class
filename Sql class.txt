@@ -1,0 +1,136 @@
+-- how to create dabase
+create database dm100;
+-- check the database
+show databases;
+-- How to utilize the database
+use dm100;
+-- create one db and the name will be your name
+create database Kranti;
+
+-- How to create table
+-- stu_id
+-- stu_name
+-- stu_subject
+create table student (
+stu_id int,
+stu_name varchar(20),
+stu_subject varchar(30));
+-- We will see table
+select * from student;
+
+-- create employee table
+-- emp_id, emp_name, emp_salary, emp_dept, emp_doj
+create table employee(
+emp_id int,
+emp_name varchar(30),
+emp_salary decimal(10,2),
+emp_dept varchar(20),
+emp_doj datetime);
+select * from employee;
+
+-- How to drop and delete table
+drop table employee;
+-- what is db
+-- Relational model
+-- rdbms
+-- datatypes
+-- int,decimal
+-- varchar(30)
+-- datetime
+-- How to delete the db
+-- ,,,,,,,,,,,,,,,,,,,table
+-- use the db
+
+-- create the table hospital
+-- pat_id
+-- pat_name
+-- pat_disease
+-- pat_doj
+-- pat_doctor
+create table hospital(
+pat_id int,
+pat_name varchar(30),
+pat_disease varchar(20),
+pat_doj datetime,
+pat_doc varchar(30));
+
+select * from hospital;
+
+-- 9/06/2026
+use dm100;
+-- clg
+-- c_id unique
+-- c_name
+create table clg(
+c_id int unique,
+c_name varchar(30));
+
+insert into clg(c_id,c_name) values(1, 'ds'), (10,'ai');
+select * from clg;
+
+create table clg34(
+c_id int not null,
+c_name varchar(30));
+
+insert into clg34(c_id,c_name) values(null,'ds'),(0,'ai');
+select * from clg34;
+
+create table clg36(
+c_id int primary key,
+c_name varchar(30));
+
+insert into clg36(c_id,c_name) values(1,'ds'),(10,'ai');
+select * from clg36;
+
+create table clg39(
+c_id int primary key,
+score int check(score>=60),
+c_name varchar(30));
+
+insert into clg39(c_id,score,c_name) values(1,90,'ds');
+select * from clg39;
+
+create table clg50(
+c_id int primary key,
+score int check(score>=60),
+s_grade varchar(30) check(s_grade like 'a%'),
+c_name varchar(30));
+
+insert into clg50(c_id,score,s_grade,c_name) values(1,90,'a','ds');
+select * from clg50;
+
+show keys from clg50 where key_name='primary';
+
+create table clg500(
+c_id int primary key,
+score int check(score>=60),
+s_grade varchar(30) check(s_grade like 'a%'),
+stu_place varchar(30) default 'sikim',
+c_name varchar(30));
+
+insert into clg500(c_id,score,s_grade,c_name) values(1,90,'a','ds');
+
+select * from clg500;
+
+-- create one table
+-- the table is course
+-- cid pk
+-- cname ds
+-- stu_age >14
+
+create table course(
+cid int primary key,
+cname varchar(50) default 'ds',
+stu_age int check(stu_age >14));
+
+Insert into course (cid, cname, stu_age) values (1, 'ds',15);
+select * from course;
+
+create table course260(
+cid int primary key auto_increment,
+cname varchar(50) default 'ds',
+stu_age int check(stu_age > 14));
+
+insert into course260(stu_age) values(34);
+select * from course260;
+
